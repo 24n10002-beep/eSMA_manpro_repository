@@ -1,9 +1,4 @@
 <?php
-// index.php
-require_once __DIR__ . '/includes/functions.php';   // load duluan
-require_once __DIR__ . '/includes/auth.php';
-
-if (isKepsekLoggedIn()) {
-    redirect(baseUrl('dashboard.php'));
-}
-redirect(baseUrl('auth/login.php'));
+require_once __DIR__ . '/../includes/auth.php';
+requireKepsek();
+redirect(baseUrl('siswa/jurusan.php'));
