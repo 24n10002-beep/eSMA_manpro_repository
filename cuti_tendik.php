@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ->execute([$tendik, $km, $tm, $ts, $jenis, $alasan, $file, $status, $setuju]);
             flash('success','Izin ditambahkan.');
         }
-        redirect('cuti.php');
+        redirect('cuti_tendik.php');
     } catch (Exception $e) { flash('error','Gagal: '.$e->getMessage()); }
 }
 
@@ -39,19 +39,19 @@ if ($action === 'approve' && $id) {
         $pdo->prepare("UPDATE izin_tendik SET status='disetujui', disetujui_oleh=? WHERE id=?")->execute([$adminId, $id]);
         flash('success','Izin disetujui.');
     } catch (Exception $e) { flash('error','Gagal: '.$e->getMessage()); }
-    redirect('cuti.php');
+    redirect('cuti_tendik.php');
 }
 if ($action === 'reject' && $id) {
     try {
         $pdo->prepare("UPDATE izin_tendik SET status='ditolak' WHERE id=?")->execute([$id]);
         flash('success','Izin ditolak.');
     } catch (Exception $e) { flash('error','Gagal: '.$e->getMessage()); }
-    redirect('cuti.php');
+    redirect('cuti_tendik.php');
 }
 if ($action === 'delete' && $id) {
     try { $pdo->prepare("DELETE FROM izin_tendik WHERE id=?")->execute([$id]); flash('success','Dihapus.'); }
     catch (Exception $e) { flash('error','Gagal: '.$e->getMessage()); }
-    redirect('cuti.php');
+    redirect('cuti_tendik.php');
 }
 
 $edit = null;
@@ -80,7 +80,7 @@ include __DIR__ . '/../includes/header.php';
         <div class="card shadow-sm">
             <div class="card-header bg-white fw-bold"><?= $edit?'Edit':'Tambah' ?> Izin Tendik</div>
             <div class="card-body">
-                <form method="post" action="cuti.php<?= $edit?'?id='.$edit['id']:'' ?>">
+                <form method="post" action="cuti_tendik.php<?= $edit?'?id='.$edit['id']:'' ?>">
                     <input type="hidden" name="mode" value="<?= $edit?'edit':'add' ?>">
                     <input type="hidden" name="id" value="<?= $edit['id'] ?? 0 ?>">
                     <div class="mb-2"><label class="form-label">Tendik</label>
@@ -119,7 +119,7 @@ include __DIR__ . '/../includes/header.php';
                             <?php endforeach; ?>
                         </select></div>
                     <button class="btn btn-primary">Simpan</button>
-                    <?php if ($edit): ?><a href="cuti.php" class="btn btn-secondary">Batal</a><?php endif; ?>
+                    <?php if ($edit): ?><a href="cuti_tendik.php" class="btn btn-secondary">Batal</a><?php endif; ?>
                 </form>
             </div>
         </div>

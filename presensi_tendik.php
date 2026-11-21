@@ -24,14 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ->execute([$tendik, $km, $tgl, $jm, $jk, $status, $ket]);
             flash('success','Presensi ditambahkan.');
         }
-        redirect('presensi.php');
+        redirect('presensi_tendik.php');
     } catch (Exception $e) { flash('error','Gagal: '.$e->getMessage()); }
 }
 
 if ($action === 'delete' && $id) {
     try { $pdo->prepare("DELETE FROM presensi_tendik WHERE id=?")->execute([$id]); flash('success','Dihapus.'); }
     catch (Exception $e) { flash('error','Gagal: '.$e->getMessage()); }
-    redirect('presensi.php');
+    redirect('presensi_tendik.php');
 }
 
 $edit = null;
@@ -63,7 +63,7 @@ include __DIR__ . '/../includes/header.php';
         <div class="card shadow-sm">
             <div class="card-header bg-white fw-bold"><?= $edit?'Edit':'Tambah' ?> Presensi Tendik</div>
             <div class="card-body">
-                <form method="post" action="presensi.php<?= $edit?'?id='.$edit['id']:'' ?>">
+                <form method="post" action="presensi_tendik.php<?= $edit?'?id='.$edit['id']:'' ?>">
                     <input type="hidden" name="mode" value="<?= $edit?'edit':'add' ?>">
                     <input type="hidden" name="id" value="<?= $edit['id'] ?? 0 ?>">
                     <div class="mb-2"><label class="form-label">Tendik</label>
@@ -96,7 +96,7 @@ include __DIR__ . '/../includes/header.php';
                     <div class="mb-2"><label class="form-label">Keterangan</label>
                         <textarea name="keterangan" class="form-control" rows="2"><?= sanitize($edit['keterangan'] ?? '') ?></textarea></div>
                     <button class="btn btn-primary">Simpan</button>
-                    <?php if ($edit): ?><a href="presensi.php" class="btn btn-secondary">Batal</a><?php endif; ?>
+                    <?php if ($edit): ?><a href="presensi_tendik.php" class="btn btn-secondary">Batal</a><?php endif; ?>
                 </form>
             </div>
         </div>

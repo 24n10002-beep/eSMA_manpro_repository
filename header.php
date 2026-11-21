@@ -36,25 +36,39 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?= baseUrl('siswa/jurusan.php') ?>">Data Jurusan</a></li>
+                        
+                        <!-- TAMBAHAN MENU KELAS -->
+                        <li><a class="dropdown-item" href="<?= baseUrl('siswa/kelas.php') ?>">Data Kelas</a></li>
+                        
                         <li><a class="dropdown-item" href="<?= baseUrl('siswa/mapel.php') ?>">Data Mata Pelajaran</a></li>
+                        
+                        <!-- TAMBAHAN MENU TAHUN AJARAN -->
+                        <li><a class="dropdown-item" href="<?= baseUrl('siswa/tahun_ajaran.php') ?>">Tahun Ajaran</a></li>
+                        
+                        <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="<?= baseUrl('siswa/data_siswa.php') ?>">Data Siswa</a></li>
                         <li><a class="dropdown-item" href="<?= baseUrl('siswa/kelas_mapel_siswa.php') ?>">Jurusan & Mapel Siswa</a></li>
                         <li><a class="dropdown-item" href="<?= baseUrl('siswa/pengumpulan.php') ?>">Pengumpulan UTS/UAS</a></li>
-                        <li><a class="dropdown-item" href="<?= baseUrl('siswa/presensi.php') ?>">Presensi Siswa</a></li>
-                        <li><a class="dropdown-item" href="<?= baseUrl('siswa/cuti.php') ?>">Cuti/Izin Siswa</a></li>
+                        <li><a class="dropdown-item" href="<?= baseUrl('siswa/presensi_siswa.php') ?>">Presensi Siswa</a></li>
+<li><a class="dropdown-item" href="<?= baseUrl('siswa/cuti_siswa.php') ?>">Cuti/Izin Siswa</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="bi bi-person-badge"></i> Manajemen Tendik
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="<?= baseUrl('tendik/data_tendik.php') ?>">Data Tendik</a></li>
-                        <li><a class="dropdown-item" href="<?= baseUrl('tendik/kelas_mapel_tendik.php') ?>">Jurusan & Mapel Tendik</a></li>
-                        <li><a class="dropdown-item" href="<?= baseUrl('tendik/presensi.php') ?>">Presensi Tendik</a></li>
-                        <li><a class="dropdown-item" href="<?= baseUrl('tendik/cuti.php') ?>">Cuti/Izin Tendik</a></li>
-                    </ul>
-                </li>
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+        <i class="bi bi-person-badge"></i> Manajemen Tendik
+    </a>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="<?= baseUrl('tendik/data_tendik.php') ?>">Data Tendik</a></li>
+        <li><a class="dropdown-item" href="<?= baseUrl('tendik/kelas_mapel_tendik.php') ?>">Penugasan Tendik (Input)</a></li>
+        
+        <!-- MENU BARU DI SINI -->
+        <li><a class="dropdown-item" href="<?= baseUrl('tendik/jurusan_mapel.php') ?>">Struktur Jurusan & Mapel</a></li>
+        
+        <li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item" href="<?= baseUrl('tendik/presensi_tendik.php') ?>">Presensi Tendik</a></li>
+<li><a class="dropdown-item" href="<?= baseUrl('tendik/cuti_tendik.php') ?>">Cuti/Izin Tendik</a></li>
+    </ul>
+</li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
