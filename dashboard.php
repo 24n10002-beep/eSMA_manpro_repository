@@ -51,7 +51,7 @@ include __DIR__ . '/includes/header.php';
             <div class="card-header bg-white fw-bold">Permohonan Izin Siswa Menunggu</div>
             <div class="card-body">
                 <h2 class="text-warning"><?= $izinSiswaPending ?></h2>
-                <a href="<?= baseUrl('siswa/cuti.php') ?>" class="btn btn-sm btn-outline-primary">Lihat</a>
+                <a href="<?= baseUrl('siswa/cuti_siswa.php') ?>" class="btn btn-sm btn-outline-primary">Lihat</a>
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@ include __DIR__ . '/includes/header.php';
             <div class="card-header bg-white fw-bold">Permohonan Izin Tendik Menunggu</div>
             <div class="card-body">
                 <h2 class="text-warning"><?= $izinTendikPending ?></h2>
-                <a href="<?= baseUrl('tendik/cuti.php') ?>" class="btn btn-sm btn-outline-primary">Lihat</a>
+                <a href="<?= baseUrl('tendik/cuti_tendik.php') ?>" class="btn btn-sm btn-outline-primary">Lihat</a>
             </div>
         </div>
     </div>
